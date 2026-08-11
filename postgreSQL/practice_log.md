@@ -15,6 +15,7 @@ PostgreSQL로 데이터 분석 쿼리를 작성할 때 자주 쓰는 문법과 �
 | Boolean 조건 | [16](./16_products_active_avg_price_having.sql) |
 | 집계와 그룹화 | [11](./11_orders_count_by_customer.sql), [12](./12_payments_total_by_user.sql), [13](./13_reviews_avg_rating_by_product.sql), [15](./15_payments_count_and_total_by_user.sql), [16](./16_products_active_avg_price_having.sql) |
 | 그룹 결과 필터링 | [14](./14_orders_completed_total_amount_having.sql), [16](./16_products_active_avg_price_having.sql) |
+| 테이블 연결 | [17](./17_orders_completed_with_customer_name.sql) |
 
 ## Query Order
 
@@ -183,6 +184,20 @@ PostgreSQL에서는 `HAVING`에서 `SELECT` 별칭을 바로 쓰기보다 집계
 HAVING SUM(column_name) >= 100000
 ```
 
+## JOIN
+
+`JOIN`은 두 테이블의 관련 행을 연결할 때 사용합니다.
+
+```sql
+FROM table_a AS a
+INNER JOIN table_b AS b
+  ON a.key_column = b.key_column
+```
+
+`ON`에는 두 테이블을 어떤 컬럼으로 연결할지 명확히 적습니다.
+
+두 테이블에 같은 이름의 컬럼이 있거나 컬럼 출처가 헷갈릴 수 있으면 `table_alias.column_name` 형태로 작성합니다.
+
 ## Common Mistakes
 
 `WHERE`는 한 번만 사용하고, 여러 조건은 `AND`나 `OR`로 연결합니다.
@@ -192,5 +207,7 @@ HAVING SUM(column_name) >= 100000
 집계 결과를 필터링할 때는 `WHERE`가 아니라 `HAVING`을 사용합니다.
 
 집계 결과를 정렬할 때는 별칭을 사용할 수 있습니다.
+
+`JOIN`의 `ON` 절에는 연결할 두 컬럼의 비교식을 적습니다.
 
 문제에서 요구한 결과 컬럼명과 정렬 기준을 끝까지 확인합니다.
