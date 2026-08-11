@@ -13,11 +13,11 @@ PostgreSQL로 데이터 분석 쿼리를 작성할 때 자주 쓰는 문법과 �
 | 여러 조건 조합 | [06](./06_points_filter_i_y_gte_8.sql), [07](./07_points_filter_ii_x_gt_10.sql), [08](./08_points_filter_iii_y_lt_7_select_columns.sql), [25](./25_deliveries_late_count_by_courier.sql) |
 | 여러 값 조건 | [09](./09_points_filter_i_or_iv_order.sql), [10](./10_points_i_or_ii_y_gt_8.sql) |
 | Boolean 조건 | [16](./16_products_active_avg_price_having.sql) |
-| 집계와 그룹화 | [11](./11_orders_count_by_customer.sql), [12](./12_payments_total_by_user.sql), [13](./13_reviews_avg_rating_by_product.sql), [15](./15_payments_count_and_total_by_user.sql), [16](./16_products_active_avg_price_having.sql), [18](./18_customers_completed_order_total_having.sql), [23](./23_orders_status_amount_by_customer.sql), [24](./24_orders_completed_count_by_customer.sql), [25](./25_deliveries_late_count_by_courier.sql) |
+| 집계와 그룹화 | [11](./11_orders_count_by_customer.sql), [12](./12_payments_total_by_user.sql), [13](./13_reviews_avg_rating_by_product.sql), [15](./15_payments_count_and_total_by_user.sql), [16](./16_products_active_avg_price_having.sql), [18](./18_customers_completed_order_total_having.sql), [23](./23_orders_status_amount_by_customer.sql), [24](./24_orders_completed_count_by_customer.sql), [25](./25_deliveries_late_count_by_courier.sql), [26](./26_couriers_delivery_counts_join.sql) |
 | 계산식과 집계 | [20](./20_order_items_active_category_sales.sql), [21](./21_orders_completed_total_paid_discount.sql), [22](./22_orders_completed_total_charged_tax.sql) |
 | 그룹 결과 필터링 | [14](./14_orders_completed_total_amount_having.sql), [16](./16_products_active_avg_price_having.sql), [18](./18_customers_completed_order_total_having.sql), [20](./20_order_items_active_category_sales.sql), [21](./21_orders_completed_total_paid_discount.sql), [22](./22_orders_completed_total_charged_tax.sql) |
-| 테이블 연결 | [17](./17_orders_completed_with_customer_name.sql), [18](./18_customers_completed_order_total_having.sql), [20](./20_order_items_active_category_sales.sql), [21](./21_orders_completed_total_paid_discount.sql), [22](./22_orders_completed_total_charged_tax.sql) |
-| 조건부 집계 | [19](./19_events_latest_value_difference.sql), [23](./23_orders_status_amount_by_customer.sql), [24](./24_orders_completed_count_by_customer.sql), [25](./25_deliveries_late_count_by_courier.sql) |
+| 테이블 연결 | [17](./17_orders_completed_with_customer_name.sql), [18](./18_customers_completed_order_total_having.sql), [20](./20_order_items_active_category_sales.sql), [21](./21_orders_completed_total_paid_discount.sql), [22](./22_orders_completed_total_charged_tax.sql), [26](./26_couriers_delivery_counts_join.sql) |
+| 조건부 집계 | [19](./19_events_latest_value_difference.sql), [23](./23_orders_status_amount_by_customer.sql), [24](./24_orders_completed_count_by_customer.sql), [25](./25_deliveries_late_count_by_courier.sql), [26](./26_couriers_delivery_counts_join.sql) |
 | 윈도우 함수 | [19](./19_events_latest_value_difference.sql) |
 
 ## Query Order
@@ -228,6 +228,16 @@ INNER JOIN table_b AS b
 두 테이블에 같은 이름의 컬럼이 있거나 컬럼 출처가 헷갈릴 수 있으면 `table_alias.column_name` 형태로 작성합니다.
 
 `JOIN`한 결과를 그룹화할 때도 같은 원칙으로 컬럼 출처를 명확히 적는 편이 좋습니다.
+
+`JOIN` 뒤에 집계를 할 때, `SELECT`에 나온 일반 컬럼은 `GROUP BY`에도 포함합니다.
+
+```sql
+SELECT a.id, a.name, COUNT(*)
+FROM table_a AS a
+INNER JOIN table_b AS b
+  ON a.id = b.a_id
+GROUP BY a.id, a.name
+```
 
 ## CASE WHEN
 
