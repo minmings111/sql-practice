@@ -12,7 +12,7 @@ PostgreSQL로 데이터 분석 쿼리를 작성할 때 자주 쓰는 문법과 �
 | 조건 필터링과 정렬 | [02](./02_points_filter_i_order_y.sql), [03](./03_points_filter_ii_order_x.sql), [04](./04_points_filter_iii_order_y_desc.sql), [05](./05_points_filter_iv_order_id_desc.sql) |
 | 여러 조건 조합 | [06](./06_points_filter_i_y_gte_8.sql), [07](./07_points_filter_ii_x_gt_10.sql), [08](./08_points_filter_iii_y_lt_7_select_columns.sql) |
 | 여러 값 조건 | [09](./09_points_filter_i_or_iv_order.sql), [10](./10_points_i_or_ii_y_gt_8.sql) |
-| 집계와 그룹화 | [11](./11_orders_count_by_customer.sql), [12](./12_payments_total_by_user.sql), [13](./13_reviews_avg_rating_by_product.sql) |
+| 집계와 그룹화 | [11](./11_orders_count_by_customer.sql), [12](./12_payments_total_by_user.sql), [13](./13_reviews_avg_rating_by_product.sql), [15](./15_payments_count_and_total_by_user.sql) |
 | 그룹 결과 필터링 | [14](./14_orders_completed_total_amount_having.sql) |
 
 ## Query Order
@@ -136,6 +136,8 @@ ORDER BY first_column ASC, second_column DESC
 | `AVG(column_name)` | 평균 |
 | `MIN(column_name)` | 최솟값 |
 | `MAX(column_name)` | 최댓값 |
+
+행 자체의 개수를 세는 의도라면 `COUNT(*)`를 우선 사용합니다. 특정 컬럼을 넣은 `COUNT(column_name)`은 해당 컬럼이 `NULL`이 아닌 행만 셉니다.
 
 평균처럼 그룹별 요약값을 만들 때는 `AVG`와 `GROUP BY`를 함께 사용합니다.
 
