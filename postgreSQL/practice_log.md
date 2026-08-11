@@ -13,9 +13,9 @@ PostgreSQL로 데이터 분석 쿼리를 작성할 때 자주 쓰는 문법과 �
 | 여러 조건 조합 | [06](./06_points_filter_i_y_gte_8.sql), [07](./07_points_filter_ii_x_gt_10.sql), [08](./08_points_filter_iii_y_lt_7_select_columns.sql) |
 | 여러 값 조건 | [09](./09_points_filter_i_or_iv_order.sql), [10](./10_points_i_or_ii_y_gt_8.sql) |
 | Boolean 조건 | [16](./16_products_active_avg_price_having.sql) |
-| 집계와 그룹화 | [11](./11_orders_count_by_customer.sql), [12](./12_payments_total_by_user.sql), [13](./13_reviews_avg_rating_by_product.sql), [15](./15_payments_count_and_total_by_user.sql), [16](./16_products_active_avg_price_having.sql) |
-| 그룹 결과 필터링 | [14](./14_orders_completed_total_amount_having.sql), [16](./16_products_active_avg_price_having.sql) |
-| 테이블 연결 | [17](./17_orders_completed_with_customer_name.sql) |
+| 집계와 그룹화 | [11](./11_orders_count_by_customer.sql), [12](./12_payments_total_by_user.sql), [13](./13_reviews_avg_rating_by_product.sql), [15](./15_payments_count_and_total_by_user.sql), [16](./16_products_active_avg_price_having.sql), [18](./18_customers_completed_order_total_having.sql) |
+| 그룹 결과 필터링 | [14](./14_orders_completed_total_amount_having.sql), [16](./16_products_active_avg_price_having.sql), [18](./18_customers_completed_order_total_having.sql) |
+| 테이블 연결 | [17](./17_orders_completed_with_customer_name.sql), [18](./18_customers_completed_order_total_having.sql) |
 
 ## Query Order
 
@@ -197,6 +197,8 @@ INNER JOIN table_b AS b
 `ON`에는 두 테이블을 어떤 컬럼으로 연결할지 명확히 적습니다.
 
 두 테이블에 같은 이름의 컬럼이 있거나 컬럼 출처가 헷갈릴 수 있으면 `table_alias.column_name` 형태로 작성합니다.
+
+`JOIN`한 결과를 그룹화할 때도 같은 원칙으로 컬럼 출처를 명확히 적는 편이 좋습니다.
 
 ## Common Mistakes
 

@@ -81,3 +81,4 @@ PostgreSQL 기준 SQL 학습 파일을 모아두는 폴더입니다.
 | [15_payments_count_and_total_by_user.sql](./15_payments_count_and_total_by_user.sql) | 사용자별 결제 횟수와 합계 |
 | [16_products_active_avg_price_having.sql](./16_products_active_avg_price_having.sql) | Boolean 조건과 평균값 필터링 |
 | [17_orders_completed_with_customer_name.sql](./17_orders_completed_with_customer_name.sql) | 주문과 고객 테이블 연결 |
+| [18_customers_completed_order_total_having.sql](./18_customers_completed_order_total_having.sql) | JOIN과 그룹별 합계 필터링 |
