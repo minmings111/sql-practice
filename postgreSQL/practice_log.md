@@ -14,9 +14,9 @@ PostgreSQL로 데이터 분석 쿼리를 작성할 때 자주 쓰는 문법과 �
 | 여러 값 조건 | [09](./09_points_filter_i_or_iv_order.sql), [10](./10_points_i_or_ii_y_gt_8.sql) |
 | Boolean 조건 | [16](./16_products_active_avg_price_having.sql) |
 | 집계와 그룹화 | [11](./11_orders_count_by_customer.sql), [12](./12_payments_total_by_user.sql), [13](./13_reviews_avg_rating_by_product.sql), [15](./15_payments_count_and_total_by_user.sql), [16](./16_products_active_avg_price_having.sql), [18](./18_customers_completed_order_total_having.sql) |
-| 계산식과 집계 | [20](./20_order_items_active_category_sales.sql) |
-| 그룹 결과 필터링 | [14](./14_orders_completed_total_amount_having.sql), [16](./16_products_active_avg_price_having.sql), [18](./18_customers_completed_order_total_having.sql), [20](./20_order_items_active_category_sales.sql) |
-| 테이블 연결 | [17](./17_orders_completed_with_customer_name.sql), [18](./18_customers_completed_order_total_having.sql), [20](./20_order_items_active_category_sales.sql) |
+| 계산식과 집계 | [20](./20_order_items_active_category_sales.sql), [21](./21_orders_completed_total_paid_discount.sql) |
+| 그룹 결과 필터링 | [14](./14_orders_completed_total_amount_having.sql), [16](./16_products_active_avg_price_having.sql), [18](./18_customers_completed_order_total_having.sql), [20](./20_order_items_active_category_sales.sql), [21](./21_orders_completed_total_paid_discount.sql) |
+| 테이블 연결 | [17](./17_orders_completed_with_customer_name.sql), [18](./18_customers_completed_order_total_having.sql), [20](./20_order_items_active_category_sales.sql), [21](./21_orders_completed_total_paid_discount.sql) |
 | 조건부 집계 | [19](./19_events_latest_value_difference.sql) |
 | 윈도우 함수 | [19](./19_events_latest_value_difference.sql) |
 
@@ -162,6 +162,8 @@ ORDER BY first_column ASC, second_column DESC
 ```sql
 SUM(column_a * column_b)
 ```
+
+PostgreSQL에서 정수끼리 나누면 정수 나눗셈이 됩니다. 소수점 계산이 필요한 문제라면 `100` 대신 `100.0`처럼 소수 리터럴을 사용합니다.
 
 ## GROUP BY
 
