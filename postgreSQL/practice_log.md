@@ -12,8 +12,9 @@ PostgreSQL로 데이터 분석 쿼리를 작성할 때 자주 쓰는 문법과 �
 | 조건 필터링과 정렬 | [02](./02_points_filter_i_order_y.sql), [03](./03_points_filter_ii_order_x.sql), [04](./04_points_filter_iii_order_y_desc.sql), [05](./05_points_filter_iv_order_id_desc.sql) |
 | 여러 조건 조합 | [06](./06_points_filter_i_y_gte_8.sql), [07](./07_points_filter_ii_x_gt_10.sql), [08](./08_points_filter_iii_y_lt_7_select_columns.sql) |
 | 여러 값 조건 | [09](./09_points_filter_i_or_iv_order.sql), [10](./10_points_i_or_ii_y_gt_8.sql) |
-| 집계와 그룹화 | [11](./11_orders_count_by_customer.sql), [12](./12_payments_total_by_user.sql), [13](./13_reviews_avg_rating_by_product.sql), [15](./15_payments_count_and_total_by_user.sql) |
-| 그룹 결과 필터링 | [14](./14_orders_completed_total_amount_having.sql) |
+| Boolean 조건 | [16](./16_products_active_avg_price_having.sql) |
+| 집계와 그룹화 | [11](./11_orders_count_by_customer.sql), [12](./12_payments_total_by_user.sql), [13](./13_reviews_avg_rating_by_product.sql), [15](./15_payments_count_and_total_by_user.sql), [16](./16_products_active_avg_price_having.sql) |
+| 그룹 결과 필터링 | [14](./14_orders_completed_total_amount_having.sql), [16](./16_products_active_avg_price_having.sql) |
 
 ## Query Order
 
@@ -78,6 +79,17 @@ SELECT expression AS alias_name
 | `<=` | 작거나 같다 |
 
 PostgreSQL에서 같은지 비교할 때는 `==`가 아니라 `=`를 사용합니다.
+
+## Boolean Conditions
+
+PostgreSQL의 boolean 컬럼은 `TRUE` 또는 `FALSE` 기준으로 필터링합니다.
+
+```sql
+WHERE boolean_column IS TRUE
+WHERE boolean_column IS FALSE
+```
+
+`is_active = 1`처럼 숫자로 비교하는 방식은 PostgreSQL boolean 컬럼에는 적합하지 않습니다.
 
 ## AND / OR
 
