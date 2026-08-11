@@ -13,6 +13,7 @@ PostgreSQL로 데이터 분석 쿼리를 작성할 때 자주 쓰는 문법과 �
 | 여러 조건 조합 | [06](./06_points_filter_i_y_gte_8.sql), [07](./07_points_filter_ii_x_gt_10.sql), [08](./08_points_filter_iii_y_lt_7_select_columns.sql) |
 | 여러 값 조건 | [09](./09_points_filter_i_or_iv_order.sql), [10](./10_points_todo_i_or_ii_y_gt_8.sql) |
 | 집계와 그룹화 | [11](./11_orders_count_by_customer.sql), [12](./12_payments_total_by_user.sql), [13](./13_reviews_avg_rating_by_product.sql) |
+| 그룹 결과 필터링 | [14](./14_orders_completed_total_amount_having.sql) |
 
 ## Query Order
 
@@ -150,11 +151,31 @@ GROUP BY group_column
 
 `SELECT`에 일반 컬럼과 집계 함수를 함께 쓸 때, 일반 컬럼은 보통 `GROUP BY`에 포함되어야 합니다.
 
+## HAVING
+
+`HAVING`은 그룹화된 결과를 필터링할 때 사용합니다.
+
+행 단위 조건은 `WHERE`에 쓰고, 집계 결과 조건은 `HAVING`에 씁니다.
+
+```sql
+WHERE row_condition
+GROUP BY group_column
+HAVING aggregate_condition
+```
+
+PostgreSQL에서는 `HAVING`에서 `SELECT` 별칭을 바로 쓰기보다 집계식을 다시 적는 편이 안전합니다.
+
+```sql
+HAVING SUM(column_name) >= 100000
+```
+
 ## Common Mistakes
 
 `WHERE`는 한 번만 사용하고, 여러 조건은 `AND`나 `OR`로 연결합니다.
 
 `ORDER BY`는 `GROUP BY` 뒤에 옵니다.
+
+집계 결과를 필터링할 때는 `WHERE`가 아니라 `HAVING`을 사용합니다.
 
 집계 결과를 정렬할 때는 별칭을 사용할 수 있습니다.
 

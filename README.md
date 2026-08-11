@@ -2,7 +2,7 @@
 
 데이터 분석에 필요한 SQL 활용 능력을 기르기 위한 개인 학습 저장소입니다.
 
-단순히 문법을 외우는 것보다, 분석 질문을 읽고 필요한 데이터를 정확히 조회, 필터링, 정렬, 집계하는 연습에 초점을 둡니다. 현재는 PostgreSQL을 기준으로 기본 쿼리와 집계 쿼리를 정리하고 있습니다.
+단순히 문법을 외우는 것보다, 분석 질문을 읽고 필요한 데이터를 정확히 조회, 필터링, 정렬, 집계하는 연습에 초점을 둡니다. 현재는 PostgreSQL을 기준으로 기본 쿼리, 집계 쿼리, 그룹 필터링을 정리하고 있습니다.
 
 ## Goals
 
@@ -37,6 +37,7 @@ sql-practice/
 | Multiple conditions with `AND` / `OR` | In progress |
 | Aggregate functions: `COUNT`, `SUM`, `AVG` | In progress |
 | `GROUP BY` | In progress |
+| `HAVING` | In progress |
 
 ## File Convention
 
