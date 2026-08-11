@@ -58,6 +58,8 @@ PostgreSQL 기준 SQL 학습 파일을 모아두는 폴더입니다.
 | `GROUP BY` | In progress |
 | `HAVING` | In progress |
 | `JOIN` | In progress |
+| `CASE WHEN` | In progress |
+| Window functions | In progress |
 
 ## Practice Files
 
@@ -82,3 +84,4 @@ PostgreSQL 기준 SQL 학습 파일을 모아두는 폴더입니다.
 | [16_products_active_avg_price_having.sql](./16_products_active_avg_price_having.sql) | Boolean 조건과 평균값 필터링 |
 | [17_orders_completed_with_customer_name.sql](./17_orders_completed_with_customer_name.sql) | 주문과 고객 테이블 연결 |
 | [18_customers_completed_order_total_having.sql](./18_customers_completed_order_total_having.sql) | JOIN과 그룹별 합계 필터링 |
+| [19_events_latest_value_difference.sql](./19_events_latest_value_difference.sql) | 최신값과 두 번째 최신값의 차이 |

@@ -16,6 +16,8 @@ PostgreSQL로 데이터 분석 쿼리를 작성할 때 자주 쓰는 문법과 �
 | 집계와 그룹화 | [11](./11_orders_count_by_customer.sql), [12](./12_payments_total_by_user.sql), [13](./13_reviews_avg_rating_by_product.sql), [15](./15_payments_count_and_total_by_user.sql), [16](./16_products_active_avg_price_having.sql), [18](./18_customers_completed_order_total_having.sql) |
 | 그룹 결과 필터링 | [14](./14_orders_completed_total_amount_having.sql), [16](./16_products_active_avg_price_having.sql), [18](./18_customers_completed_order_total_having.sql) |
 | 테이블 연결 | [17](./17_orders_completed_with_customer_name.sql), [18](./18_customers_completed_order_total_having.sql) |
+| 조건부 집계 | [19](./19_events_latest_value_difference.sql) |
+| 윈도우 함수 | [19](./19_events_latest_value_difference.sql) |
 
 ## Query Order
 
@@ -166,6 +168,14 @@ GROUP BY group_column
 
 `SELECT`에 일반 컬럼과 집계 함수를 함께 쓸 때, 일반 컬럼은 보통 `GROUP BY`에 포함되어야 합니다.
 
+조건에 맞는 값만 그룹 안에서 꺼낼 때는 조건부 집계를 사용할 수 있습니다.
+
+```sql
+MAX(CASE WHEN condition THEN value_column END)
+```
+
+이때 `MAX`는 최댓값을 찾기 위한 목적보다, 조건에 맞는 하나의 값을 그룹 결과로 꺼내기 위한 도구로 쓰일 수 있습니다.
+
 ## HAVING
 
 `HAVING`은 그룹화된 결과를 필터링할 때 사용합니다.
@@ -200,6 +210,33 @@ INNER JOIN table_b AS b
 
 `JOIN`한 결과를 그룹화할 때도 같은 원칙으로 컬럼 출처를 명확히 적는 편이 좋습니다.
 
+## CASE WHEN
+
+`CASE WHEN`은 조건에 따라 다른 값을 반환합니다.
+
+```sql
+CASE
+  WHEN condition THEN result_value
+END
+```
+
+`ELSE`를 쓰지 않으면 조건을 만족하지 않는 행은 `NULL`을 반환합니다.
+
+## Window Functions
+
+윈도우 함수는 행을 유지한 채 그룹 안에서 순위나 누적값을 계산할 때 사용합니다.
+
+그룹 안에서 최신순 번호를 붙일 때는 `ROW_NUMBER()`를 사용할 수 있습니다.
+
+```sql
+ROW_NUMBER() OVER (
+  PARTITION BY group_column
+  ORDER BY sort_column DESC
+)
+```
+
+`PARTITION BY`는 번호를 매길 그룹을 정하고, `ORDER BY`는 그 그룹 안에서의 순서를 정합니다.
+
 ## Common Mistakes
 
 `WHERE`는 한 번만 사용하고, 여러 조건은 `AND`나 `OR`로 연결합니다.
@@ -211,5 +248,7 @@ INNER JOIN table_b AS b
 집계 결과를 정렬할 때는 별칭을 사용할 수 있습니다.
 
 `JOIN`의 `ON` 절에는 연결할 두 컬럼의 비교식을 적습니다.
+
+`GROUP BY`는 행을 접는 작업이므로, 최신 행과 두 번째 최신 행처럼 순서가 필요한 값을 찾기 전에는 먼저 순번을 붙입니다.
 
 문제에서 요구한 결과 컬럼명과 정렬 기준을 끝까지 확인합니다.
