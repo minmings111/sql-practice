@@ -90,3 +90,4 @@ PostgreSQL 기준 SQL 학습 파일을 모아두는 폴더입니다.
 | [22_orders_completed_total_charged_tax.sql](./22_orders_completed_total_charged_tax.sql) | JOIN과 세금 적용 청구 금액 집계 |
 | [23_orders_status_amount_by_customer.sql](./23_orders_status_amount_by_customer.sql) | CASE WHEN을 사용한 상태별 조건부 합계 |
 | [24_orders_completed_count_by_customer.sql](./24_orders_completed_count_by_customer.sql) | CASE WHEN을 사용한 조건부 개수 |
+| [25_deliveries_late_count_by_courier.sql](./25_deliveries_late_count_by_courier.sql) | CASE WHEN과 두 컬럼 비교를 사용한 조건부 개수 |
