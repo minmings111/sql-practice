@@ -62,4 +62,4 @@ PostgreSQL 기준 SQL 학습 파일을 모아두는 폴더입니다.
 | [10_points_todo_i_or_ii_y_gt_8.sql](./10_points_todo_i_or_ii_y_gt_8.sql) | 미풀이 연습 |
 | [11_orders_count_by_customer.sql](./11_orders_count_by_customer.sql) | 고객별 주문 개수 |
 | [12_payments_total_by_user.sql](./12_payments_total_by_user.sql) | 사용자별 결제 금액 합계 |
-| [13_reviews_todo_avg_rating.sql](./13_reviews_todo_avg_rating.sql) | 미풀이 연습 |
+| [13_reviews_avg_rating_by_product.sql](./13_reviews_avg_rating_by_product.sql) | 상품별 평균 평점 |
