@@ -45,6 +45,18 @@ PostgreSQL 기준 SQL 학습 파일을 모아두는 폴더입니다.
 3. 풀이 쿼리는 해당 `.sql` 파일에서 관리한다.
 4. 헷갈린 문법이나 반복되는 실수는 `practice_log.md`에 문법 노트로 정리한다.
 
+## Current Topics
+
+| Topic | Status |
+|---|---|
+| Basic `SELECT` | In progress |
+| Filtering with `WHERE` | In progress |
+| Sorting with `ORDER BY` | In progress |
+| Multiple conditions with `AND` / `OR` | In progress |
+| Aggregate functions: `COUNT`, `SUM`, `AVG` | In progress |
+| `GROUP BY` | In progress |
+| `HAVING` | In progress |
+
 ## Practice Files
 
 | File | Topic |
@@ -59,7 +71,7 @@ PostgreSQL 기준 SQL 학습 파일을 모아두는 폴더입니다.
 | [07_points_filter_ii_x_gt_10.sql](./07_points_filter_ii_x_gt_10.sql) | 여러 조건 필터링 |
 | [08_points_filter_iii_y_lt_7_select_columns.sql](./08_points_filter_iii_y_lt_7_select_columns.sql) | 조건 필터링과 특정 컬럼 조회 |
 | [09_points_filter_i_or_iv_order.sql](./09_points_filter_i_or_iv_order.sql) | 여러 값 조건과 다중 정렬 |
-| [10_points_todo_i_or_ii_y_gt_8.sql](./10_points_todo_i_or_ii_y_gt_8.sql) | 미풀이 연습 |
+| [10_points_i_or_ii_y_gt_8.sql](./10_points_i_or_ii_y_gt_8.sql) | 여러 값 조건과 숫자 조건 조합 |
 | [11_orders_count_by_customer.sql](./11_orders_count_by_customer.sql) | 고객별 주문 개수 |
 | [12_payments_total_by_user.sql](./12_payments_total_by_user.sql) | 사용자별 결제 금액 합계 |
 | [13_reviews_avg_rating_by_product.sql](./13_reviews_avg_rating_by_product.sql) | 상품별 평균 평점 |

@@ -27,18 +27,6 @@ sql-practice/
 
 - [postgreSQL](./postgreSQL/README.md): PostgreSQL 기준 SQL 연습과 학습 노트
 
-## Current Topics
-
-| Topic | Status |
-|---|---|
-| Basic `SELECT` | In progress |
-| Filtering with `WHERE` | In progress |
-| Sorting with `ORDER BY` | In progress |
-| Multiple conditions with `AND` / `OR` | In progress |
-| Aggregate functions: `COUNT`, `SUM`, `AVG` | In progress |
-| `GROUP BY` | In progress |
-| `HAVING` | In progress |
-
 ## File Convention
 
 각 학습 항목은 하나의 `.sql` 파일로 저장합니다.
