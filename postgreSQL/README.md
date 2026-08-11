@@ -87,3 +87,4 @@ PostgreSQL 기준 SQL 학습 파일을 모아두는 폴더입니다.
 | [19_events_latest_value_difference.sql](./19_events_latest_value_difference.sql) | 최신값과 두 번째 최신값의 차이 |
 | [20_order_items_active_category_sales.sql](./20_order_items_active_category_sales.sql) | JOIN과 계산식 기반 카테고리별 매출 |
 | [21_orders_completed_total_paid_discount.sql](./21_orders_completed_total_paid_discount.sql) | JOIN과 할인 적용 결제 금액 집계 |
+| [22_orders_completed_total_charged_tax.sql](./22_orders_completed_total_charged_tax.sql) | JOIN과 세금 적용 청구 금액 집계 |
