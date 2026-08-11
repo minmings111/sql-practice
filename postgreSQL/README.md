@@ -85,3 +85,4 @@ PostgreSQL 기준 SQL 학습 파일을 모아두는 폴더입니다.
 | [17_orders_completed_with_customer_name.sql](./17_orders_completed_with_customer_name.sql) | 주문과 고객 테이블 연결 |
 | [18_customers_completed_order_total_having.sql](./18_customers_completed_order_total_having.sql) | JOIN과 그룹별 합계 필터링 |
 | [19_events_latest_value_difference.sql](./19_events_latest_value_difference.sql) | 최신값과 두 번째 최신값의 차이 |
+| [20_order_items_active_category_sales.sql](./20_order_items_active_category_sales.sql) | JOIN과 계산식 기반 카테고리별 매출 |

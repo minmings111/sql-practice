@@ -14,8 +14,9 @@ PostgreSQL로 데이터 분석 쿼리를 작성할 때 자주 쓰는 문법과 �
 | 여러 값 조건 | [09](./09_points_filter_i_or_iv_order.sql), [10](./10_points_i_or_ii_y_gt_8.sql) |
 | Boolean 조건 | [16](./16_products_active_avg_price_having.sql) |
 | 집계와 그룹화 | [11](./11_orders_count_by_customer.sql), [12](./12_payments_total_by_user.sql), [13](./13_reviews_avg_rating_by_product.sql), [15](./15_payments_count_and_total_by_user.sql), [16](./16_products_active_avg_price_having.sql), [18](./18_customers_completed_order_total_having.sql) |
-| 그룹 결과 필터링 | [14](./14_orders_completed_total_amount_having.sql), [16](./16_products_active_avg_price_having.sql), [18](./18_customers_completed_order_total_having.sql) |
-| 테이블 연결 | [17](./17_orders_completed_with_customer_name.sql), [18](./18_customers_completed_order_total_having.sql) |
+| 계산식과 집계 | [20](./20_order_items_active_category_sales.sql) |
+| 그룹 결과 필터링 | [14](./14_orders_completed_total_amount_having.sql), [16](./16_products_active_avg_price_having.sql), [18](./18_customers_completed_order_total_having.sql), [20](./20_order_items_active_category_sales.sql) |
+| 테이블 연결 | [17](./17_orders_completed_with_customer_name.sql), [18](./18_customers_completed_order_total_having.sql), [20](./20_order_items_active_category_sales.sql) |
 | 조건부 집계 | [19](./19_events_latest_value_difference.sql) |
 | 윈도우 함수 | [19](./19_events_latest_value_difference.sql) |
 
@@ -155,6 +156,12 @@ ORDER BY first_column ASC, second_column DESC
 행 자체의 개수를 세는 의도라면 `COUNT(*)`를 우선 사용합니다. 특정 컬럼을 넣은 `COUNT(column_name)`은 해당 컬럼이 `NULL`이 아닌 행만 셉니다.
 
 평균처럼 그룹별 요약값을 만들 때는 `AVG`와 `GROUP BY`를 함께 사용합니다.
+
+계산식을 먼저 만든 뒤 그룹별로 합산할 수도 있습니다.
+
+```sql
+SUM(column_a * column_b)
+```
 
 ## GROUP BY
 
