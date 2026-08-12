@@ -58,7 +58,9 @@ PostgreSQL 기준 SQL 학습 파일을 모아두는 폴더입니다.
 | `GROUP BY` | In progress |
 | `HAVING` | In progress |
 | `JOIN` | In progress |
+| `LEFT JOIN` | In progress |
 | `CASE WHEN` | In progress |
+| `UNION ALL` | In progress |
 | Window functions | In progress |
 
 ## Practice Files
@@ -93,3 +95,4 @@ PostgreSQL 기준 SQL 학습 파일을 모아두는 폴더입니다.
 | [25_deliveries_late_count_by_courier.sql](./25_deliveries_late_count_by_courier.sql) | CASE WHEN과 두 컬럼 비교를 사용한 조건부 개수 |
 | [26_couriers_delivery_counts_join.sql](./26_couriers_delivery_counts_join.sql) | JOIN과 CASE WHEN을 함께 사용한 조건부 개수 |
 | [27_customers_order_amounts_join.sql](./27_customers_order_amounts_join.sql) | JOIN과 CASE WHEN을 함께 사용한 조건부 합계 |
+| [28_teams_match_points_ranking.sql](./28_teams_match_points_ranking.sql) | UNION ALL, LEFT JOIN, CASE WHEN을 사용한 팀별 점수 랭킹 |
