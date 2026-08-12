@@ -99,3 +99,4 @@ PostgreSQL 기준 SQL 학습 파일을 모아두는 폴더입니다.
 | [29_players_game_points_ranking.sql](./29_players_game_points_ranking.sql) | UNION ALL, LEFT JOIN, CASE WHEN을 사용한 플레이어별 점수 랭킹 |
 | [30_employees_review_scores_ranking.sql](./30_employees_review_scores_ranking.sql) | UNION ALL, LEFT JOIN, CASE WHEN을 사용한 직원별 리뷰 점수 랭킹 |
 | [31_price_logs_latest_price_change.sql](./31_price_logs_latest_price_change.sql) | ROW_NUMBER와 조건부 집계를 사용한 최신 가격 변화량 |
+| [32_sensor_readings_latest_delta.sql](./32_sensor_readings_latest_delta.sql) | ROW_NUMBER와 조건부 집계를 사용한 최신 센서값 변화량 |
