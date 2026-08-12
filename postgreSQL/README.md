@@ -96,3 +96,4 @@ PostgreSQL 기준 SQL 학습 파일을 모아두는 폴더입니다.
 | [26_couriers_delivery_counts_join.sql](./26_couriers_delivery_counts_join.sql) | JOIN과 CASE WHEN을 함께 사용한 조건부 개수 |
 | [27_customers_order_amounts_join.sql](./27_customers_order_amounts_join.sql) | JOIN과 CASE WHEN을 함께 사용한 조건부 합계 |
 | [28_teams_match_points_ranking.sql](./28_teams_match_points_ranking.sql) | UNION ALL, LEFT JOIN, CASE WHEN을 사용한 팀별 점수 랭킹 |
+| [29_players_game_points_ranking.sql](./29_players_game_points_ranking.sql) | UNION ALL, LEFT JOIN, CASE WHEN을 사용한 플레이어별 점수 랭킹 |
