@@ -320,6 +320,16 @@ ROW_NUMBER() OVER (
 
 `PARTITION BY`는 번호를 매길 그룹을 정하고, `ORDER BY`는 그 그룹 안에서의 순서를 정합니다.
 
+최신값과 직전값처럼 서로 다른 행의 값을 한 줄에서 계산해야 할 때는 `ROW_NUMBER()`로 순번을 붙인 뒤, 조건부 집계로 값을 꺼냅니다.
+
+```sql
+MAX(CASE WHEN rn = 1 THEN value_column END)
+-
+MAX(CASE WHEN rn = 2 THEN value_column END)
+```
+
+`CASE WHEN rn = 1 ...`과 `CASE WHEN rn = 2 ...`를 바로 빼면 두 값이 서로 다른 행에 있기 때문에 원하는 그룹별 차이가 나오지 않습니다.
+
 ## Common Mistakes
 
 `WHERE`는 한 번만 사용하고, 여러 조건은 `AND`나 `OR`로 연결합니다.

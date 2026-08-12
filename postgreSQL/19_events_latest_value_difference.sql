@@ -70,6 +70,75 @@
 -- Attempt 5:
 -- Result: Correct
 
+-- Repractice attempt 1:
+-- SELECT event_type, value, ROW_NUMBER() OVER (
+--   PARTITION BY event_type
+--   ORDER BY time DESC
+-- ) AS rn
+-- FROM events
+-- Result: Correct intermediate step
+-- Note:
+-- This correctly assigns rn = 1 to the latest row and rn = 2 to the second latest
+-- row within each event_type.
+
+-- Repractice attempt 2:
+-- SELECT event_type,
+--   (CASE WHEN rn = 1 THEN value END) - (CASE WHEN rn = 2 THEN value END) AS value
+-- FROM (
+--   SELECT event_type, value, ROW_NUMBER() OVER (
+--     PARTITION BY event_type
+--     ORDER BY time DESC
+--   ) AS rn
+--   FROM events
+-- )
+-- GROUP BY event_type
+-- ORDER BY event_type ASC;
+-- Result: Incorrect
+-- Reason:
+-- rn = 1 and rn = 2 are different rows. A single row cannot be both rn = 1 and rn = 2,
+-- so the direct subtraction produces NULL-like row-level expressions instead of one
+-- group-level difference.
+-- PostgreSQL also requires a derived table alias after FROM (...).
+
+-- Repractice attempt 3:
+-- SELECT event_type,
+--   MAX(CASE WHEN rn = 1 THEN value END)
+--   -
+--   MAX(CASE WHEN rn = 2 THEN value END) AS value
+-- FROM (
+--   SELECT event_type, value, ROW_NUMBER() OVER (
+--     PARTITION BY event_type
+--     ORDER BY time DESC
+--   ) AS rn
+--   FROM events
+-- ) AS sub
+-- GROUP BY event_type
+-- ORDER BY event_type ASC;
+-- Result: Almost correct
+-- Reason:
+-- This extracts rn = 1 and rn = 2 values correctly, but it still includes event_type
+-- values registered only once. The problem asks for event_type values registered
+-- more than once.
+
+-- Repractice attempt 4:
+-- SELECT event_type,
+--   MAX(CASE WHEN rn = 1 THEN value END)
+--   -
+--   MAX(CASE WHEN rn = 2 THEN value END) AS value
+-- FROM (
+--   SELECT event_type, value, ROW_NUMBER() OVER (
+--     PARTITION BY event_type
+--     ORDER BY time DESC
+--   ) AS rn
+--   FROM events
+-- ) AS sub
+-- GROUP BY event_type
+-- HAVING COUNT(*) >= 2
+-- ORDER BY event_type ASC;
+-- Result: Correct
+-- Note:
+-- HAVING COUNT(*) >= 2 matches the condition "registered more than once".
+
 SELECT event_type,
   (
     MAX(CASE WHEN rn = 1 THEN value END)
